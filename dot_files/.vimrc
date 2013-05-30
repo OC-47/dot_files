@@ -16,6 +16,7 @@ NeoBundle 'thinca/vim-ref'
 "}}}
 " 画面分割が上にくるよ
 set splitbelow
+" C-l で :noh
 nnoremap <C-l> :nohlsearch<CR><C-l>
 " Vim勉強会で色々と追加 {{{1
 
