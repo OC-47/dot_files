@@ -16,6 +16,7 @@ NeoBundle 'thinca/vim-ref'
 "}}}
 " 画面分割が上にくるよ
 set splitbelow
+nnoremap <C-l> :nohlsearch<CR><C-l>
 " Vim勉強会で色々と追加 {{{1
 
 filetype plugin indent on           " filetype をオンにします
