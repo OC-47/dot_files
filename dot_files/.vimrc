@@ -1,4 +1,3 @@
-" (4/18追加分)
 " neobundle Settings {{{1
 filetype off
 "}}}
@@ -15,10 +14,8 @@ NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 "}}}
-" QuickRunのための {{{1
-"let g:quickrun_config.python = {'shebang/enable' : 0}
-"}}}
-" (4/18編集)
+" 画面分割が上にくるよ
+set splitbelow
 " Vim勉強会で色々と追加 {{{1
 
 filetype plugin indent on           " filetype をオンにします
@@ -40,7 +37,6 @@ let g:ref_source_webdict_cmd = 'w3m -dump %s'
 
 " ----- ここまでがVim勉強会での追加分です。 -----
 "}}}
-
 "設定 {{{1
 "カラー設定
 set background=dark
