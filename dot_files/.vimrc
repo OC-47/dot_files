@@ -1,3 +1,10 @@
+" vim 空白可視化 {{{1
+
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+" }}}
+
 " neobundle Settings {{{1
 filetype off
 "}}}
