@@ -1,10 +1,20 @@
+" vim2hs {{{1
+ let g:haskell_conceal              = 0
+" }}}
+" Align {{{1
+
+let g:Align_xstrlen=3
+
+
+" }}}
 " vim 空白可視化 {{{1
 
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,eol:_,precedes:«,nbsp:%
+
+set expandtab
 
 " }}}
-
 " neobundle Settings {{{1
 filetype off
 "}}}
@@ -20,18 +30,24 @@ NeoBundle 'Shougo/neocomplcache.git'
 "NeoBundle 'Shougo/neosnippet'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'mattn/mkdpreview-vim'
+NeoBundle 'mattn/webapi-vim'
 "}}}
-" 画面分割が上にくるよ
+" 画面分割が上にくるよ {{{1
 set splitbelow
 " C-l で :noh
 nnoremap <C-l> :nohlsearch<CR><C-l>
+"}}}
 " Vim勉強会で色々と追加 {{{1
 
 filetype plugin indent on           " filetype をオンにします
 
 " ref.vim の webdict の設定
 " FileTypeがtextならKでwebdictを使う
-autocmd FileType text call ref#register_detection('_', 'webdict') 
+autocmd FileType text call ref#register_detection('_', 'webdict')
 
 " yahoo_dict と wikipedia を使う
 let g:ref_source_webdict_sites = {
@@ -39,7 +55,7 @@ let g:ref_source_webdict_sites = {
 \ 'wikipedia'  : {'url' : 'http://ja.wikipedia.org/wiki/%s',},}
 
 " webdict の辞書のデフォルトはyahoo_dict
-let g:ref_source_webdict_sites.default = 'yahoo_dict'			
+let g:ref_source_webdict_sites.default = 'yahoo_dict'
 
 " テキストブラウザはw3mを使う
 let g:ref_source_webdict_cmd = 'w3m -dump %s'
@@ -48,7 +64,8 @@ let g:ref_source_webdict_cmd = 'w3m -dump %s'
 "}}}
 "設定 {{{1
 "カラー設定
-set background=dark
+"set background=dark
+set background=light
 colorscheme desert
 
 "ファイル名補完時の挙動
@@ -229,11 +246,15 @@ set tabstop=2
 " Yの動作をDやCと同じにする
 map Y y$
 
+" クリップボードにコピーとペースト
+map "Y "*y
+map "P "*p
+
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 " <C-L>で検索後の強調表示を解除する
 nnoremap <C-L> :nohl<CR><C-L>
-
 
 "------------------------------------------------------------
 " Run commands quickly.
@@ -275,8 +296,8 @@ nnoremap <C-L> :nohl<CR><C-L>
 set fileencodings=utf8,iso-2022-jp,sjis
 
 
-autocmd BufNewFile *.rb 0r ~/.vim/templates/ruby.rb		"ruby
-autocmd BufNewFile *.py 0r ~/.vim/templates/python.py	"python
+autocmd BufNewFile *.rb 0r ~/.vim/templates/ruby.rb   "ruby
+autocmd BufNewFile *.py 0r ~/.vim/templates/python.py "python
 
 
 "-----------------------------------
@@ -289,9 +310,9 @@ set foldmethod=marker
 " for Processing(*.pde)
 " set filetype
 augroup Processing
-	autocmd!
-	autocmd BufNewFile *.pde setl filetype=java
-	autocmd BufRead    *.pde setl filetype=java
+  autocmd!
+  autocmd BufNewFile *.pde setl filetype=java
+  autocmd BufRead    *.pde setl filetype=java
 augroup END
 
 "-----------------------------------
@@ -311,3 +332,6 @@ augroup END
 
 
 "-----------------------------------
+" clipboard {{{1
+  set clipboard=unnamed
+" }}}
